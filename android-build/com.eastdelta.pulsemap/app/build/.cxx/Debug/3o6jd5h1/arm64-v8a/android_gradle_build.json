@@ -1,0 +1,86 @@
+{
+  "buildFiles": [
+    "D:\\Development\\Projects\\PulseMap\\android-build\\com.eastdelta.pulsemap\\app\\jni\\Android.mk",
+    "D:\\Development\\Projects\\PulseMap\\android-build\\com.eastdelta.pulsemap\\app\\jni\\Application.mk"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\LubanNoor\\AppData\\Local\\Android\\Sdk\\ndk\\30.0.16248370\\ndk-build.cmd",
+      "NDK_PROJECT_PATH\u003dnull",
+      "APP_BUILD_SCRIPT\u003dD:\\Development\\Projects\\PulseMap\\android-build\\com.eastdelta.pulsemap\\app\\jni\\Android.mk",
+      "NDK_APPLICATION_MK\u003dD:\\Development\\Projects\\PulseMap\\android-build\\com.eastdelta.pulsemap\\app\\jni\\Application.mk",
+      "APP_ABI\u003darm64-v8a",
+      "NDK_ALL_ABIS\u003darm64-v8a",
+      "NDK_DEBUG\u003d1",
+      "NDK_OUT\u003dD:\\Development\\Projects\\PulseMap\\android-build\\com.eastdelta.pulsemap\\app\\build\\intermediates\\cxx\\Debug\\3o6jd5h1/obj",
+      "NDK_LIBS_OUT\u003dD:\\Development\\Projects\\PulseMap\\android-build\\com.eastdelta.pulsemap\\app\\build\\intermediates\\cxx\\Debug\\3o6jd5h1/lib",
+      "APP_PLATFORM\u003dandroid-21",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\LubanNoor\\AppData\\Local\\Android\\Sdk\\ndk\\30.0.16248370\\ndk-build.cmd",
+    "NDK_PROJECT_PATH\u003dnull",
+    "APP_BUILD_SCRIPT\u003dD:\\Development\\Projects\\PulseMap\\android-build\\com.eastdelta.pulsemap\\app\\jni\\Android.mk",
+    "NDK_APPLICATION_MK\u003dD:\\Development\\Projects\\PulseMap\\android-build\\com.eastdelta.pulsemap\\app\\jni\\Application.mk",
+    "APP_ABI\u003darm64-v8a",
+    "NDK_ALL_ABIS\u003darm64-v8a",
+    "NDK_DEBUG\u003d1",
+    "NDK_OUT\u003dD:\\Development\\Projects\\PulseMap\\android-build\\com.eastdelta.pulsemap\\app\\build\\intermediates\\cxx\\Debug\\3o6jd5h1/obj",
+    "NDK_LIBS_OUT\u003dD:\\Development\\Projects\\PulseMap\\android-build\\com.eastdelta.pulsemap\\app\\build\\intermediates\\cxx\\Debug\\3o6jd5h1/lib",
+    "APP_PLATFORM\u003dandroid-21",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "main-debug-arm64-v8a": {
+      "buildCommandComponents": [
+        "C:\\Users\\LubanNoor\\AppData\\Local\\Android\\Sdk\\ndk\\30.0.16248370\\ndk-build.cmd",
+        "NDK_PROJECT_PATH\u003dnull",
+        "APP_BUILD_SCRIPT\u003dD:\\Development\\Projects\\PulseMap\\android-build\\com.eastdelta.pulsemap\\app\\jni\\Android.mk",
+        "NDK_APPLICATION_MK\u003dD:\\Development\\Projects\\PulseMap\\android-build\\com.eastdelta.pulsemap\\app\\jni\\Application.mk",
+        "APP_ABI\u003darm64-v8a",
+        "NDK_ALL_ABIS\u003darm64-v8a",
+        "NDK_DEBUG\u003d1",
+        "NDK_OUT\u003dD:\\Development\\Projects\\PulseMap\\android-build\\com.eastdelta.pulsemap\\app\\build\\intermediates\\cxx\\Debug\\3o6jd5h1/obj",
+        "NDK_LIBS_OUT\u003dD:\\Development\\Projects\\PulseMap\\android-build\\com.eastdelta.pulsemap\\app\\build\\intermediates\\cxx\\Debug\\3o6jd5h1/lib",
+        "APP_PLATFORM\u003dandroid-21",
+        "D:\\Development\\Projects\\PulseMap\\android-build\\com.eastdelta.pulsemap\\app\\build\\intermediates\\cxx\\Debug\\3o6jd5h1/obj/local/arm64-v8a/libmain.so"
+      ],
+      "toolchain": "toolchain-arm64-v8a",
+      "abi": "arm64-v8a",
+      "artifactName": "main",
+      "output": "D:\\Development\\Projects\\PulseMap\\android-build\\com.eastdelta.pulsemap\\app\\build\\intermediates\\cxx\\Debug\\3o6jd5h1\\obj\\local\\arm64-v8a\\libmain.so"
+    },
+    "SDL3-debug-arm64-v8a": {
+      "buildCommandComponents": [
+        "C:\\Users\\LubanNoor\\AppData\\Local\\Android\\Sdk\\ndk\\30.0.16248370\\ndk-build.cmd",
+        "NDK_PROJECT_PATH\u003dnull",
+        "APP_BUILD_SCRIPT\u003dD:\\Development\\Projects\\PulseMap\\android-build\\com.eastdelta.pulsemap\\app\\jni\\Android.mk",
+        "NDK_APPLICATION_MK\u003dD:\\Development\\Projects\\PulseMap\\android-build\\com.eastdelta.pulsemap\\app\\jni\\Application.mk",
+        "APP_ABI\u003darm64-v8a",
+        "NDK_ALL_ABIS\u003darm64-v8a",
+        "NDK_DEBUG\u003d1",
+        "NDK_OUT\u003dD:\\Development\\Projects\\PulseMap\\android-build\\com.eastdelta.pulsemap\\app\\build\\intermediates\\cxx\\Debug\\3o6jd5h1/obj",
+        "NDK_LIBS_OUT\u003dD:\\Development\\Projects\\PulseMap\\android-build\\com.eastdelta.pulsemap\\app\\build\\intermediates\\cxx\\Debug\\3o6jd5h1/lib",
+        "APP_PLATFORM\u003dandroid-21",
+        "D:\\Development\\Projects\\PulseMap\\android-build\\com.eastdelta.pulsemap\\app\\build\\intermediates\\cxx\\Debug\\3o6jd5h1/obj/local/arm64-v8a/libSDL3.so"
+      ],
+      "toolchain": "toolchain-arm64-v8a",
+      "abi": "arm64-v8a",
+      "artifactName": "SDL3",
+      "output": "D:\\Development\\Projects\\PulseMap\\android-build\\com.eastdelta.pulsemap\\app\\build\\intermediates\\cxx\\Debug\\3o6jd5h1\\obj\\local\\arm64-v8a\\libSDL3.so"
+    }
+  },
+  "toolchains": {
+    "toolchain-arm64-v8a": {
+      "cCompilerExecutable": "C:\\Users\\LubanNoor\\AppData\\Local\\Android\\Sdk\\ndk\\30.0.16248370\\build\\..\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe",
+      "cppCompilerExecutable": "C:\\Users\\LubanNoor\\AppData\\Local\\Android\\Sdk\\ndk\\30.0.16248370\\build\\..\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [
+    "c"
+  ],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

@@ -1,0 +1,6 @@
+com.eastdelta.pulsemap:style/AppTheme = 0x7f040000
+com.eastdelta.pulsemap:mipmap/ic_launcher = 0x7f020000
+com.eastdelta.pulsemap:string/app_name = 0x7f030000
+com.eastdelta.pulsemap:color/colorPrimary = 0x7f010001
+com.eastdelta.pulsemap:color/colorPrimaryDark = 0x7f010002
+com.eastdelta.pulsemap:color/colorAccent = 0x7f010000

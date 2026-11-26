@@ -1,0 +1,2 @@
+D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulsemap\app\jni\Android.mk
+D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulsemap\app\jni\Application.mk

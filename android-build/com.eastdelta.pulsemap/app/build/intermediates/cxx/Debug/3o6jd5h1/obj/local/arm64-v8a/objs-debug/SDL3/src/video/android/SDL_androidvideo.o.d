@@ -1,0 +1,240 @@
+D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulsemap\app\build\intermediates\cxx\Debug\3o6jd5h1/obj/local/arm64-v8a/objs-debug/SDL3/src/video/android/SDL_androidvideo.o: \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/SDL_androidvideo.c \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/SDL_internal.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/build_config/SDL_build_config.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_platform_defines.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/build_config/SDL_build_config_android.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/dynapi/SDL_dynapi.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_stdinc.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_begin_code.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_close_code.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_assert.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_asyncio.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_atomic.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_audio.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_endian.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_error.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_mutex.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_thread.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_properties.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_iostream.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_bits.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_blendmode.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_camera.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_pixels.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_surface.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_rect.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_clipboard.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_cpuinfo.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_dialog.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_video.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_dlopennote.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_events.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_gamepad.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_guid.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_joystick.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_power.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_sensor.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_keyboard.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_keycode.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_scancode.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_mouse.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_notification.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_pen.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_touch.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_filesystem.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_gpu.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_haptic.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_hidapi.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_hints.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_init.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_loadso.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_locale.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_log.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_messagebox.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_metal.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_misc.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_platform.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_process.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_render.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_storage.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_system.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_time.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_timer.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_tray.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_version.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_oldnames.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_intrin.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_main.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/SDL_utils_c.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/SDL_hashtable.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../SDL_sysvideo.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_vulkan.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../SDL_surface_c.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../SDL_blit.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../SDL_pixels_c.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../events/SDL_events_c.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../events/../video/SDL_sysvideo.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../events/SDL_clipboardevents_c.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../events/SDL_displayevents_c.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../events/SDL_dropevents_c.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../events/SDL_keyboard_c.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../events/SDL_keymap_c.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../events/SDL_mouse_c.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../events/SDL_touch_c.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../events/SDL_pen_c.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../events/../SDL_internal.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../events/SDL_windowevents_c.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../SDL_hints_c.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../SDL_internal.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/SDL_androidvideo.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/SDL_androidgl.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/SDL_androidclipboard.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/SDL_androidevents.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/SDL_androidkeyboard.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/SDL_androidmouse.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/SDL_androidtouch.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/SDL_androidwindow.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../core/android/SDL_android.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../core/android/../../audio/SDL_sysaudio.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../SDL_egl_c.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_egl.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/SDL_androidvulkan.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../SDL_vulkan_internal.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/vulkan.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/vk_platform.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/vulkan_core.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/../vk_video/vulkan_video_codec_h264std.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/../vk_video/vulkan_video_codecs_common.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/../vk_video/vulkan_video_codec_h264std_encode.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/../vk_video/vulkan_video_codec_h265std.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/../vk_video/vulkan_video_codec_h265std_encode.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/../vk_video/vulkan_video_codec_h264std_decode.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/../vk_video/vulkan_video_codec_h265std_decode.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/../vk_video/vulkan_video_codec_av1std.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/../vk_video/vulkan_video_codec_av1std_decode.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/../vk_video/vulkan_video_codec_av1std_encode.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/../vk_video/vulkan_video_codec_vp9std.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/../vk_video/vulkan_video_codec_vp9std_decode.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/vulkan_android.h \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/SDL_androidmessagebox.h
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/SDL_internal.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/build_config/SDL_build_config.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_platform_defines.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/build_config/SDL_build_config_android.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/dynapi/SDL_dynapi.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_stdinc.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_begin_code.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_close_code.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_assert.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_asyncio.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_atomic.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_audio.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_endian.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_error.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_mutex.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_thread.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_properties.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_iostream.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_bits.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_blendmode.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_camera.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_pixels.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_surface.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_rect.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_clipboard.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_cpuinfo.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_dialog.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_video.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_dlopennote.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_events.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_gamepad.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_guid.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_joystick.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_power.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_sensor.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_keyboard.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_keycode.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_scancode.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_mouse.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_notification.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_pen.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_touch.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_filesystem.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_gpu.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_haptic.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_hidapi.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_hints.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_init.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_loadso.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_locale.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_log.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_messagebox.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_metal.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_misc.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_platform.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_process.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_render.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_storage.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_system.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_time.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_timer.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_tray.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_version.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_oldnames.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_intrin.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_main.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/SDL_utils_c.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/SDL_hashtable.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../SDL_sysvideo.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_vulkan.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../SDL_surface_c.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../SDL_blit.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../SDL_pixels_c.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../events/SDL_events_c.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../events/../video/SDL_sysvideo.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../events/SDL_clipboardevents_c.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../events/SDL_displayevents_c.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../events/SDL_dropevents_c.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../events/SDL_keyboard_c.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../events/SDL_keymap_c.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../events/SDL_mouse_c.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../events/SDL_touch_c.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../events/SDL_pen_c.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../events/../SDL_internal.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../events/SDL_windowevents_c.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../SDL_hints_c.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../SDL_internal.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/SDL_androidvideo.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/SDL_androidgl.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/SDL_androidclipboard.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/SDL_androidevents.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/SDL_androidkeyboard.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/SDL_androidmouse.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/SDL_androidtouch.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/SDL_androidwindow.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../core/android/SDL_android.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../../core/android/../../audio/SDL_sysaudio.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../SDL_egl_c.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/include/SDL3/SDL_egl.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/SDL_androidvulkan.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/../SDL_vulkan_internal.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/vulkan.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/vk_platform.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/vulkan_core.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/../vk_video/vulkan_video_codec_h264std.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/../vk_video/vulkan_video_codecs_common.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/../vk_video/vulkan_video_codec_h264std_encode.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/../vk_video/vulkan_video_codec_h265std.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/../vk_video/vulkan_video_codec_h265std_encode.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/../vk_video/vulkan_video_codec_h264std_decode.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/../vk_video/vulkan_video_codec_h265std_decode.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/../vk_video/vulkan_video_codec_av1std.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/../vk_video/vulkan_video_codec_av1std_decode.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/../vk_video/vulkan_video_codec_av1std_encode.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/../vk_video/vulkan_video_codec_vp9std.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/../vk_video/vulkan_video_codec_vp9std_decode.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/.././khronos/vulkan/vulkan_android.h:
+D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/src/video/android/SDL_androidmessagebox.h:

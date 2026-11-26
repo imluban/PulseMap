@@ -1,0 +1,2 @@
+D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulsemap\app\build\intermediates\cxx\Debug\3o6jd5h1/obj/local/arm64-v8a/objs-debug/main/main.o: \
+  D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/src/main.c
