@@ -1,0 +1,7 @@
+com.eastdelta.pulsemap.app-pngs-0 D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulsemap\app\build\generated\res\pngs\debug
+com.eastdelta.pulsemap.app-resValues-1 D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulsemap\app\build\generated\res\resValues\debug
+com.eastdelta.pulsemap.app-packageDebugResources-2 D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulsemap\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.eastdelta.pulsemap.app-packageDebugResources-3 D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulsemap\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.eastdelta.pulsemap.app-debug-4 D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulsemap\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.eastdelta.pulsemap.app-debug-5 D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulsemap\app\src\debug\res
+com.eastdelta.pulsemap.app-main-6 D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulsemap\app\src\main\res
