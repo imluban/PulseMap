@@ -1,2 +1,4 @@
 Android NDK: WARNING:D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/Android.mk:SDL3_static: LOCAL_LDFLAGS is always ignored for static libraries    
 Android NDK: WARNING:D:/Development/Projects/PulseMap/android-build/com.eastdelta.pulsemap/app/jni/SDL/Android.mk:SDL3_static: LOCAL_LDLIBS is always ignored for static libraries    
+[arm64-v8a] Compile        : main <= main.c
+[arm64-v8a] SharedLibrary  : libmain.so
