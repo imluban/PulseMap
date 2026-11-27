@@ -674,108 +674,19 @@ int main(int argc, char *argv[])
             /* DASHBOARD */
             if (screen == SCREEN_DASHBOARD) {
 
-    /* Background */
-    draw_rect(renderer, 0, 0, output_w, output_h,
-              250, 248, 249);
+                /* Match the visible dashboard buttons below. */
+                if (tx >= 20 && tx <= 400 &&
+                    ty >= 545 && ty <= 620) {
 
-    /* Brand header */
-    draw_rect(renderer, 0, 0, output_w, 190 * sy,
-              RED_R, RED_G, RED_B);
+                    clear_report();
+                    screen = SCREEN_REPORT;
+                }
+                else if (tx >= 20 && tx <= 400 &&
+                         ty >= 645 && ty <= 711) {
 
-    draw_text(renderer, 24 * sx, 30 * sy,
-              "PULSEMAP", 255, 255, 255);
-
-    draw_text(renderer, 24 * sx, 58 * sy,
-              "EAST DELTA UNIVERSITY", 245, 220, 228);
-
-    draw_text(renderer, 24 * sx, 108 * sy,
-              "Your campus. Your voice.", 255, 255, 255);
-
-    draw_text(renderer, 24 * sx, 140 * sy,
-              "Spot it. Report it. Improve it.",
-              245, 220, 228);
-
-    /* Statistics card */
-    draw_rect(renderer, 18 * sx, 210 * sy,
-              384 * sx, 120 * sy, 255, 255, 255);
-
-    draw_rect(renderer, 18 * sx, 210 * sy,
-              384 * sx, 3 * sy, RED_R, RED_G, RED_B);
-
-    draw_text(renderer, 34 * sx, 232 * sy,
-              "CAMPUS OVERVIEW", RED_R, RED_G, RED_B);
-
-    {
-        char count_text[32];
-
-        snprintf(count_text, sizeof(count_text),
-                 "%u", (unsigned)report_count);
-
-        draw_text(renderer, 36 * sx, 270 * sy,
-                  count_text, 45, 35, 40);
-
-        draw_text(renderer, 76 * sx, 273 * sy,
-                  "LOCAL REPORTS", 90, 75, 80);
-
-        draw_text(renderer, 36 * sx, 302 * sy,
-                  "SAVED ON THIS DEVICE", 130, 115, 120);
-    }
-
-    /* Problem radar */
-    draw_rect(renderer, 18 * sx, 350 * sy,
-              384 * sx, 115 * sy, 255, 255, 255);
-
-    draw_rect(renderer, 18 * sx, 350 * sy,
-              5 * sx, 115 * sy, RED_R, RED_G, RED_B);
-
-    draw_text(renderer, 36 * sx, 370 * sy,
-              "CAMPUS PROBLEM RADAR",
-              RED_R, RED_G, RED_B);
-
-    draw_text(renderer, 36 * sx, 405 * sy,
-              "Emerging campus issues",
-              45, 45, 45);
-
-    draw_text(renderer, 36 * sx, 435 * sy,
-              report_count
-                  ? "Your reports are being tracked."
-                  : "Be the first to report an issue.",
-              105, 95, 100);
-
-    /* Main action */
-    draw_rect(renderer, 20 * sx, 490 * sy,
-              380 * sx, 75 * sy,
-              RED_R, RED_G, RED_B);
-
-    draw_text(renderer, 75 * sx, 520 * sy,
-              "REPORT A PROBLEM",
-              255, 255, 255);
-
-    /* Secondary action */
-    draw_rect(renderer, 20 * sx, 580 * sy,
-              380 * sx, 70 * sy,
-              248, 243, 245);
-
-    draw_rect(renderer, 20 * sx, 580 * sy,
-              4 * sx, 70 * sy,
-              RED_R, RED_G, RED_B);
-
-    draw_text(renderer, 92 * sx, 608 * sy,
-              "VIEW PROBLEM LIST",
-              RED_R, RED_G, RED_B);
-
-    /* Footer */
-    draw_text(renderer, 24 * sx, 710 * sy,
-              "FEEL THE CAMPUS.", 100, 75, 85);
-
-    draw_text(renderer, 24 * sx, 740 * sy,
-              "DRIVE THE CHANGE.",
-              RED_R, RED_G, RED_B);
-
-    draw_text(renderer, 24 * sx, 800 * sy,
-              "PULSEMAP / EAST DELTA",
-              145, 125, 132);
-}
+                    screen = SCREEN_INCIDENTS;
+                }
+            }
 
             /* REPORT FORM */
             else if (screen == SCREEN_REPORT) {
