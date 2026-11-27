@@ -71,7 +71,7 @@ INJECTED from D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulse
 		ADDED from D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulsemap\app\src\main\AndroidManifest.xml:73:9-40
 	android:enableOnBackInvokedCallback
 		ADDED from D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulsemap\app\src\main\AndroidManifest.xml:74:9-51
-activity#com.eastdelta.pulsemap.PulsemapActivity
+activity#org.libsdl.app.SDLActivity
 ADDED from D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulsemap\app\src\main\AndroidManifest.xml:81:9-105:20
 	android:label
 		ADDED from D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulsemap\app\src\main\AndroidManifest.xml:82:13-45
@@ -86,7 +86,7 @@ ADDED from D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulsemap
 	android:preferMinimalPostProcessing
 		ADDED from D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulsemap\app\src\main\AndroidManifest.xml:86:13-55
 	android:name
-		ADDED from D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulsemap\app\src\main\AndroidManifest.xml:81:19-50
+		ADDED from D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulsemap\app\src\main\AndroidManifest.xml:81:19-60
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulsemap\app\src\main\AndroidManifest.xml:89:13-92:29
 action#android.intent.action.MAIN

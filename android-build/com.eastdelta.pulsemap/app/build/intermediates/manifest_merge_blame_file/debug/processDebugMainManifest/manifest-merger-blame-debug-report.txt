@@ -119,8 +119,8 @@
 93
 94        <activity
 94-->D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulsemap\app\src\main\AndroidManifest.xml:81:9-105:20
-95            android:name="com.eastdelta.pulsemap.PulsemapActivity"
-95-->D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulsemap\app\src\main\AndroidManifest.xml:81:19-50
+95            android:name="org.libsdl.app.SDLActivity"
+95-->D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulsemap\app\src\main\AndroidManifest.xml:81:19-60
 96            android:alwaysRetainTaskState="true"
 96-->D:\Development\Projects\PulseMap\android-build\com.eastdelta.pulsemap\app\src\main\AndroidManifest.xml:83:13-49
 97            android:configChanges="layoutDirection|locale|grammaticalGender|fontScale|fontWeightAdjustment|orientation|uiMode|screenLayout|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"

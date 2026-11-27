@@ -150,6 +150,14 @@ static void draw_done_button(SDL_Renderer *renderer,
               RED_R, RED_G, RED_B);
 }
 
+static bool point_in_rect(float x, float y,
+                          float left, float top,
+                          float width, float height)
+{
+    return x >= left && x <= left + width &&
+           y >= top && y <= top + height;
+}
+
 /* ---------------------------------------------------------
    INPUT HELPERS
    --------------------------------------------------------- */
@@ -189,11 +197,10 @@ static size_t get_active_capacity(ActiveField field)
 }
 
 /*
- * Handle both normal text events and cumulative text
- * events received from some Android keyboards.
+ * SDL_TEXTINPUT contains newly committed text. Append it to the
+ * currently active field; never guess whether the event is cumulative.
  */
-static void process_text_input(ActiveField field,
-                               const char *input)
+static void process_text_input(ActiveField field, const char *input)
 {
     char *buffer = get_active_buffer(field);
     size_t capacity = get_active_capacity(field);
@@ -202,46 +209,19 @@ static void process_text_input(ActiveField field,
         return;
     }
 
-    if (input[0] == '\0') {
-        return;
-    }
-
     size_t current_length = strlen(buffer);
     size_t incoming_length = strlen(input);
 
-    /*
-     * Cumulative event:
-     * Existing: Library
-     * Incoming: LibraryL
-     *
-     * Replace the buffer instead of appending.
-     */
-    if (current_length > 0 &&
-        incoming_length >= current_length &&
-        strncmp(input, buffer, current_length) == 0) {
-
-        if (incoming_length < capacity) {
-            memcpy(buffer, input, incoming_length + 1);
-        }
-
+    if (incoming_length == 0 || current_length >= capacity) {
         return;
     }
 
-    /*
-     * Ignore identical events.
-     */
-    if (strcmp(buffer, input) == 0) {
+    /* Leave room for the terminating null byte. */
+    if (incoming_length > capacity - current_length - 1) {
         return;
     }
 
-    /*
-     * Normal event: append newly committed text.
-     */
-    if (current_length + incoming_length < capacity) {
-        memcpy(buffer + current_length,
-               input,
-               incoming_length + 1);
-    }
+    memcpy(buffer + current_length, input, incoming_length + 1);
 }
 
 static void remove_last_character(char *buffer)
@@ -278,7 +258,8 @@ static void stop_text_input(SDL_Window *window,
 }
 
 /*
- * Start a fresh Android keyboard session when switching fields.
+ * Change the active field without ending the Android IME session.
+ * Starting text input is only necessary when entering the first field.
  */
 static void activate_field(SDL_Window *window,
                            ActiveField *active,
@@ -288,20 +269,11 @@ static void activate_field(SDL_Window *window,
         return;
     }
 
-    /*
-     * End the old field's IME session first.
-     */
-    if (*active != FIELD_NONE) {
-        SDL_StopTextInput(window);
-        SDL_ClearComposition(window);
+    if (*active == FIELD_NONE) {
+        SDL_StartTextInput(window);
     }
 
     *active = next;
-
-    /*
-     * Start a fresh session for the new field.
-     */
-    SDL_StartTextInput(window);
 }
 
 /* ---------------------------------------------------------
@@ -442,37 +414,31 @@ int main(int argc, char *argv[])
             }
 
             /*
-             * Convert touch or mouse coordinates.
+             * Convert touch or mouse coordinates into the 420x900
+             * logical coordinate space used by the interface.
              */
             float tx = -1.0f;
             float ty = -1.0f;
 
             if (event.type == SDL_EVENT_FINGER_DOWN) {
-
                 tx = event.tfinger.x * SCREEN_W;
                 ty = event.tfinger.y * SCREEN_H;
-
             }
             else if (event.type == SDL_EVENT_MOUSE_BUTTON_DOWN &&
                      event.button.button == SDL_BUTTON_LEFT) {
-
                 tx = event.button.x * SCREEN_W / window_w;
                 ty = event.button.y * SCREEN_H / window_h;
             }
 
-            if (tx < 0 || ty < 0) {
+            if (tx < 0.0f || ty < 0.0f) {
                 continue;
             }
 
             /* ---------------------------------------------
                DASHBOARD
                --------------------------------------------- */
-
             if (screen == SCREEN_DASHBOARD) {
-
-                if (tx >= 20 && tx <= 400 &&
-                    ty >= 470 && ty <= 545) {
-
+                if (point_in_rect(tx, ty, 20, 470, 380, 75)) {
                     screen = SCREEN_REPORT;
                     error_message[0] = '\0';
                 }
@@ -481,98 +447,55 @@ int main(int argc, char *argv[])
             /* ---------------------------------------------
                REPORT FORM
                --------------------------------------------- */
-
             else if (screen == SCREEN_REPORT) {
-
-                /*
-                 * Back button.
-                 */
-                if (ty >= 40 && ty <= 100 &&
-                    tx >= 20 && tx <= 150) {
-
+                /* Back always returns to the dashboard. */
+                if (point_in_rect(tx, ty, 20, 35, 130, 70)) {
                     stop_text_input(window, &active);
                     screen = SCREEN_DASHBOARD;
                     continue;
                 }
 
-                /*
-                 * Done button.
-                 */
+                /* Done dismisses the keyboard; it does not submit. */
                 if (keyboard_visible &&
-                    ty >= 30 && ty <= 90 &&
-                    tx >= 315 && tx <= 405) {
-
+                    point_in_rect(tx, ty, 315, 30, 90, 60)) {
                     stop_text_input(window, &active);
                     continue;
                 }
 
-                /*
-                 * Compact layout while keyboard is visible.
-                 */
                 if (keyboard_visible) {
-
-                    if (ty >= 155 && ty <= 245) {
-
-                        activate_field(window,
-                                       &active,
-                                       FIELD_TITLE);
-
+                    /* Compact positions match the rendered fields. */
+                    if (point_in_rect(tx, ty, 20, 180, 380, 55)) {
+                        activate_field(window, &active, FIELD_TITLE);
                     }
-                    else if (ty >= 250 && ty <= 345) {
-
-                        activate_field(window,
-                                       &active,
-                                       FIELD_LOCATION);
-
+                    else if (point_in_rect(tx, ty, 20, 275, 380, 55)) {
+                        activate_field(window, &active, FIELD_LOCATION);
                     }
-                    else if (ty >= 350 && ty <= 485) {
-
-                        activate_field(window,
-                                       &active,
-                                       FIELD_DESCRIPTION);
+                    else if (point_in_rect(tx, ty, 20, 375, 380, 100)) {
+                        activate_field(window, &active, FIELD_DESCRIPTION);
                     }
                 }
-
-                /*
-                 * Normal layout while keyboard is hidden.
-                 */
                 else {
-
-                    if (ty >= 250 && ty <= 325) {
-
-                        activate_field(window,
-                                       &active,
-                                       FIELD_TITLE);
-
+                    /* Full form: three fields, category, severity, submit. */
+                    if (point_in_rect(tx, ty, 20, 250, 380, 55)) {
+                        activate_field(window, &active, FIELD_TITLE);
                     }
-                    else if (ty >= 350 && ty <= 425) {
-
-                        activate_field(window,
-                                       &active,
-                                       FIELD_LOCATION);
-
+                    else if (point_in_rect(tx, ty, 20, 350, 380, 55)) {
+                        activate_field(window, &active, FIELD_LOCATION);
                     }
-                    else if (ty >= 450 && ty <= 590) {
-
-                        activate_field(window,
-                                       &active,
-                                       FIELD_DESCRIPTION);
-
+                    else if (point_in_rect(tx, ty, 20, 450, 380, 110)) {
+                        activate_field(window, &active, FIELD_DESCRIPTION);
                     }
-                    else if (ty >= 620 && ty <= 680) {
-
+                    else if (point_in_rect(tx, ty, 20, 620, 380, 55)) {
                         stop_text_input(window, &active);
                         category = (category + 1) % 5;
-
+                        error_message[0] = '\0';
                     }
-                    else if (ty >= 700 && ty <= 760) {
-
+                    else if (point_in_rect(tx, ty, 20, 700, 380, 55)) {
                         stop_text_input(window, &active);
                         severity = (severity + 1) % 4;
-
+                        error_message[0] = '\0';
                     }
-                    else if (ty >= 790 && ty <= 865) {
-
+                    else if (point_in_rect(tx, ty, 20, 790, 380, 75)) {
                         stop_text_input(window, &active);
                         submit_report(&screen);
                     }
@@ -716,8 +639,8 @@ int main(int argc, char *argv[])
 
                 draw_text(renderer,
                           25 * sx,
-                          500 * sy,
-                          "Finish typing, then tap DONE.",
+                          510 * sy,
+                          "Tap DONE for category, severity and submit.",
                           100, 100, 100);
             }
 

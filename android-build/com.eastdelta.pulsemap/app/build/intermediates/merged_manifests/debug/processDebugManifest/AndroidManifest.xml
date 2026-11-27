@@ -92,7 +92,7 @@
         -->
 
         <activity
-            android:name="com.eastdelta.pulsemap.PulsemapActivity"
+            android:name="org.libsdl.app.SDLActivity"
             android:alwaysRetainTaskState="true"
             android:configChanges="layoutDirection|locale|grammaticalGender|fontScale|fontWeightAdjustment|orientation|uiMode|screenLayout|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
             android:exported="true"
