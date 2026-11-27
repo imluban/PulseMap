@@ -1,9 +1,9 @@
-
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+#include <stdint.h>
 
 #define SCREEN_W 420
 #define SCREEN_H 900
@@ -19,8 +19,23 @@
 typedef enum {
     SCREEN_DASHBOARD,
     SCREEN_REPORT,
+    SCREEN_INCIDENTS,
     SCREEN_CONFIRMATION
 } AppScreen;
+
+typedef struct {
+    char title[96];
+    char location[96];
+    char description[256];
+    int category;
+    int severity;
+} ReportRecord;
+
+#define MAX_REPORTS 100
+#define REPORT_FILE_NAME "reports.dat"
+
+static ReportRecord reports[MAX_REPORTS];
+static size_t report_count = 0;
 
 typedef enum {
     FIELD_NONE = -1,
@@ -150,14 +165,6 @@ static void draw_done_button(SDL_Renderer *renderer,
               RED_R, RED_G, RED_B);
 }
 
-static bool point_in_rect(float x, float y,
-                          float left, float top,
-                          float width, float height)
-{
-    return x >= left && x <= left + width &&
-           y >= top && y <= top + height;
-}
-
 /* ---------------------------------------------------------
    INPUT HELPERS
    --------------------------------------------------------- */
@@ -198,7 +205,7 @@ static size_t get_active_capacity(ActiveField field)
 
 /*
  * SDL_TEXTINPUT contains newly committed text. Append it to the
- * currently active field; never guess whether the event is cumulative.
+ * currently active field; do not infer cumulative text from its contents.
  */
 static void process_text_input(ActiveField field, const char *input)
 {
@@ -292,27 +299,115 @@ static void clear_report(void)
     error_message[0] = '\0';
 }
 
-static void submit_report(AppScreen *screen)
+/* Store reports in SDL's private, persistent application directory. */
+static bool save_reports(void)
 {
+    char *directory = SDL_GetPrefPath("EastDelta", "PulseMap");
+    char path[1024];
+    FILE *file;
+    bool success = false;
+
+    if (directory == NULL) {
+        return false;
+    }
+
+    if (snprintf(path, sizeof(path), "%s%s", directory,
+                 REPORT_FILE_NAME) >= (int)sizeof(path)) {
+        SDL_free(directory);
+        return false;
+    }
+
+    file = fopen(path, "wb");
+    if (file != NULL) {
+        uint32_t count = (uint32_t)report_count;
+        if (fwrite(&count, sizeof(count), 1, file) == 1 &&
+            (count == 0 || fwrite(reports, sizeof(ReportRecord), count, file) == count)) {
+            success = true;
+        }
+        fclose(file);
+    }
+
+    SDL_free(directory);
+    return success;
+}
+
+static void load_reports(void)
+{
+    char *directory = SDL_GetPrefPath("EastDelta", "PulseMap");
+    char path[1024];
+    FILE *file;
+    uint32_t count = 0;
+
+    report_count = 0;
+    if (directory == NULL) {
+        return;
+    }
+
+    if (snprintf(path, sizeof(path), "%s%s", directory,
+                 REPORT_FILE_NAME) >= (int)sizeof(path)) {
+        SDL_free(directory);
+        return;
+    }
+
+    file = fopen(path, "rb");
+    if (file != NULL) {
+        if (fread(&count, sizeof(count), 1, file) == 1 &&
+            count <= MAX_REPORTS &&
+            (count == 0 || fread(reports, sizeof(ReportRecord), count, file) == count)) {
+            report_count = count;
+        }
+        fclose(file);
+    }
+
+    SDL_free(directory);
+}
+
+static bool submit_report(AppScreen *screen)
+{
+    ReportRecord record;
+
     if (title[0] == '\0') {
-        snprintf(error_message,
-                 sizeof(error_message),
+        snprintf(error_message, sizeof(error_message),
                  "Please enter a problem title.");
+        return false;
     }
-    else if (location[0] == '\0') {
-        snprintf(error_message,
-                 sizeof(error_message),
+    if (location[0] == '\0') {
+        snprintf(error_message, sizeof(error_message),
                  "Please enter a campus location.");
+        return false;
     }
-    else if (description[0] == '\0') {
-        snprintf(error_message,
-                 sizeof(error_message),
+    if (description[0] == '\0') {
+        snprintf(error_message, sizeof(error_message),
                  "Please describe the problem.");
+        return false;
     }
-    else {
-        error_message[0] = '\0';
-        *screen = SCREEN_CONFIRMATION;
+
+    memset(&record, 0, sizeof(record));
+    snprintf(record.title, sizeof(record.title), "%s", title);
+    snprintf(record.location, sizeof(record.location), "%s", location);
+    snprintf(record.description, sizeof(record.description), "%s", description);
+    record.category = category;
+    record.severity = severity;
+
+    /* Keep the newest MAX_REPORTS entries. */
+    if (report_count == MAX_REPORTS) {
+        memmove(&reports[0], &reports[1],
+                (MAX_REPORTS - 1) * sizeof(ReportRecord));
+        report_count--;
     }
+
+    reports[report_count++] = record;
+
+    if (!save_reports()) {
+        report_count--;
+        snprintf(error_message, sizeof(error_message),
+                 "Could not save report on this device.");
+        return false;
+    }
+
+    error_message[0] = '\0';
+    *screen = SCREEN_CONFIRMATION;
+    return true;
 }
 
 /* ---------------------------------------------------------
@@ -336,6 +431,8 @@ int main(int argc, char *argv[])
                 SDL_GetError());
         return 1;
     }
+
+    load_reports();
 
     if (!SDL_CreateWindowAndRenderer(
             "PulseMap",
@@ -414,91 +511,154 @@ int main(int argc, char *argv[])
             }
 
             /*
-             * Convert touch or mouse coordinates into the 420x900
-             * logical coordinate space used by the interface.
+             * Convert touch or mouse coordinates.
              */
             float tx = -1.0f;
             float ty = -1.0f;
 
             if (event.type == SDL_EVENT_FINGER_DOWN) {
+
                 tx = event.tfinger.x * SCREEN_W;
                 ty = event.tfinger.y * SCREEN_H;
+
             }
             else if (event.type == SDL_EVENT_MOUSE_BUTTON_DOWN &&
                      event.button.button == SDL_BUTTON_LEFT) {
+
                 tx = event.button.x * SCREEN_W / window_w;
                 ty = event.button.y * SCREEN_H / window_h;
             }
 
-            if (tx < 0.0f || ty < 0.0f) {
+            if (tx < 0 || ty < 0) {
                 continue;
             }
 
             /* ---------------------------------------------
                DASHBOARD
                --------------------------------------------- */
+
             if (screen == SCREEN_DASHBOARD) {
-                if (point_in_rect(tx, ty, 20, 470, 380, 75)) {
+
+                if (tx >= 20 && tx <= 400 &&
+                    ty >= 470 && ty <= 545) {
+
                     screen = SCREEN_REPORT;
                     error_message[0] = '\0';
+                }
+                else if (tx >= 20 && tx <= 400 &&
+                         ty >= 570 && ty <= 645) {
+                    screen = SCREEN_INCIDENTS;
                 }
             }
 
             /* ---------------------------------------------
                REPORT FORM
                --------------------------------------------- */
+
             else if (screen == SCREEN_REPORT) {
-                /* Back always returns to the dashboard. */
-                if (point_in_rect(tx, ty, 20, 35, 130, 70)) {
+
+                /*
+                 * Back button.
+                 */
+                if (ty >= 40 && ty <= 100 &&
+                    tx >= 20 && tx <= 150) {
+
                     stop_text_input(window, &active);
                     screen = SCREEN_DASHBOARD;
                     continue;
                 }
 
-                /* Done dismisses the keyboard; it does not submit. */
+                /*
+                 * Done button.
+                 */
                 if (keyboard_visible &&
-                    point_in_rect(tx, ty, 315, 30, 90, 60)) {
+                    ty >= 30 && ty <= 90 &&
+                    tx >= 315 && tx <= 405) {
+
                     stop_text_input(window, &active);
                     continue;
                 }
 
+                /*
+                 * Compact layout while keyboard is visible.
+                 */
                 if (keyboard_visible) {
-                    /* Compact positions match the rendered fields. */
-                    if (point_in_rect(tx, ty, 20, 180, 380, 55)) {
-                        activate_field(window, &active, FIELD_TITLE);
+
+                    if (ty >= 155 && ty <= 245) {
+
+                        activate_field(window,
+                                       &active,
+                                       FIELD_TITLE);
+
                     }
-                    else if (point_in_rect(tx, ty, 20, 275, 380, 55)) {
-                        activate_field(window, &active, FIELD_LOCATION);
+                    else if (ty >= 250 && ty <= 345) {
+
+                        activate_field(window,
+                                       &active,
+                                       FIELD_LOCATION);
+
                     }
-                    else if (point_in_rect(tx, ty, 20, 375, 380, 100)) {
-                        activate_field(window, &active, FIELD_DESCRIPTION);
+                    else if (ty >= 350 && ty <= 485) {
+
+                        activate_field(window,
+                                       &active,
+                                       FIELD_DESCRIPTION);
                     }
                 }
+
+                /*
+                 * Normal layout while keyboard is hidden.
+                 */
                 else {
-                    /* Full form: three fields, category, severity, submit. */
-                    if (point_in_rect(tx, ty, 20, 250, 380, 55)) {
-                        activate_field(window, &active, FIELD_TITLE);
+
+                    if (ty >= 250 && ty <= 325) {
+
+                        activate_field(window,
+                                       &active,
+                                       FIELD_TITLE);
+
                     }
-                    else if (point_in_rect(tx, ty, 20, 350, 380, 55)) {
-                        activate_field(window, &active, FIELD_LOCATION);
+                    else if (ty >= 350 && ty <= 425) {
+
+                        activate_field(window,
+                                       &active,
+                                       FIELD_LOCATION);
+
                     }
-                    else if (point_in_rect(tx, ty, 20, 450, 380, 110)) {
-                        activate_field(window, &active, FIELD_DESCRIPTION);
+                    else if (ty >= 450 && ty <= 590) {
+
+                        activate_field(window,
+                                       &active,
+                                       FIELD_DESCRIPTION);
+
                     }
-                    else if (point_in_rect(tx, ty, 20, 620, 380, 55)) {
+                    else if (ty >= 620 && ty <= 680) {
+
                         stop_text_input(window, &active);
                         category = (category + 1) % 5;
-                        error_message[0] = '\0';
+
                     }
-                    else if (point_in_rect(tx, ty, 20, 700, 380, 55)) {
+                    else if (ty >= 700 && ty <= 760) {
+
                         stop_text_input(window, &active);
                         severity = (severity + 1) % 4;
-                        error_message[0] = '\0';
+
                     }
-                    else if (point_in_rect(tx, ty, 20, 790, 380, 75)) {
+                    else if (ty >= 790 && ty <= 865) {
+
                         stop_text_input(window, &active);
                         submit_report(&screen);
                     }
+                }
+            }
+
+            /* ---------------------------------------------
+               PROBLEM LIST
+               --------------------------------------------- */
+
+            else if (screen == SCREEN_INCIDENTS) {
+                if (ty >= 35 && ty <= 115 && tx >= 15 && tx <= 180) {
+                    screen = SCREEN_DASHBOARD;
                 }
             }
 
@@ -509,9 +669,12 @@ int main(int argc, char *argv[])
             else if (screen == SCREEN_CONFIRMATION) {
 
                 if (ty >= 470 && ty <= 550) {
-
                     clear_report();
                     screen = SCREEN_DASHBOARD;
+                }
+                else if (ty >= 570 && ty <= 650) {
+                    clear_report();
+                    screen = SCREEN_INCIDENTS;
                 }
             }
         }
@@ -583,6 +746,19 @@ int main(int argc, char *argv[])
                         sx, sy,
                         470,
                         "REPORT A PROBLEM");
+
+            draw_button(renderer,
+                        sx, sy,
+                        570,
+                        "VIEW PROBLEM LIST");
+
+            {
+                char count_text[64];
+                snprintf(count_text, sizeof(count_text),
+                         "Saved reports: %u", (unsigned)report_count);
+                draw_text(renderer, 25 * sx, 680 * sy,
+                          count_text, 90, 90, 90);
+            }
         }
 
         /* ---------------------------------------------
@@ -639,8 +815,8 @@ int main(int argc, char *argv[])
 
                 draw_text(renderer,
                           25 * sx,
-                          510 * sy,
-                          "Tap DONE for category, severity and submit.",
+                          500 * sy,
+                          "Finish typing, then tap DONE.",
                           100, 100, 100);
             }
 
@@ -725,6 +901,62 @@ int main(int argc, char *argv[])
         }
 
         /* ---------------------------------------------
+           PROBLEM LIST SCREEN
+           --------------------------------------------- */
+
+        else if (screen == SCREEN_INCIDENTS) {
+            draw_rect(renderer, 0, 0, output_w, 150 * sy,
+                      RED_R, RED_G, RED_B);
+            draw_text(renderer, 25 * sx, 55 * sy,
+                      "< BACK", 255, 255, 255);
+            draw_text(renderer, 25 * sx, 105 * sy,
+                      "PROBLEM LIST", 255, 255, 255);
+
+            if (report_count == 0) {
+                draw_text(renderer, 25 * sx, 220 * sy,
+                          "No reports submitted yet.", 75, 75, 75);
+                draw_text(renderer, 25 * sx, 265 * sy,
+                          "Your submitted reports will appear here.",
+                          110, 110, 110);
+            } else {
+                char summary[96];
+                unsigned shown = (report_count < 5)
+                                     ? (unsigned)report_count : 5U;
+                snprintf(summary, sizeof(summary),
+                         "Showing newest %u of %u reports",
+                         shown, (unsigned)report_count);
+                draw_text(renderer, 25 * sx, 175 * sy,
+                          summary, 90, 90, 90);
+
+                for (unsigned i = 0; i < shown; ++i) {
+                    size_t index = report_count - 1U - i;
+                    float y = 205.0f + (float)i * 130.0f;
+                    char meta[128];
+                    char detail[96];
+
+                    draw_rect(renderer, 20 * sx, y * sy,
+                              380 * sx, 112 * sy,
+                              248, 243, 245);
+                    draw_text(renderer, 32 * sx, (y + 14) * sy,
+                              reports[index].title,
+                              RED_R, RED_G, RED_B);
+                    snprintf(meta, sizeof(meta), "%s | %s | %s",
+                             (reports[index].category >= 0 && reports[index].category < 5)
+                                 ? categories[reports[index].category] : "Other",
+                             (reports[index].severity >= 0 && reports[index].severity < 4)
+                                 ? severities[reports[index].severity] : "Medium",
+                             reports[index].location);
+                    draw_text(renderer, 32 * sx, (y + 43) * sy,
+                              meta, 65, 65, 65);
+                    snprintf(detail, sizeof(detail), "%.68s",
+                             reports[index].description);
+                    draw_text(renderer, 32 * sx, (y + 72) * sy,
+                              detail, 105, 105, 105);
+                }
+            }
+        }
+
+        /* ---------------------------------------------
            CONFIRMATION SCREEN
            --------------------------------------------- */
 
@@ -745,25 +977,30 @@ int main(int argc, char *argv[])
             draw_text(renderer,
                       25 * sx,
                       110 * sy,
-                      "REPORT VALIDATED",
+                      "REPORT SAVED",
                       255, 255, 255);
 
             draw_text(renderer,
                       25 * sx,
                       300 * sy,
-                      "Your report passed validation.",
+                      "Your report is saved on this device.",
                       65, 65, 65);
 
             draw_text(renderer,
                       25 * sx,
                       345 * sy,
-                      "Backend submission comes next.",
+                      "It is now available in the Problem List.",
                       65, 65, 65);
 
             draw_button(renderer,
                         sx, sy,
                         470,
                         "RETURN TO DASHBOARD");
+
+            draw_button(renderer,
+                        sx, sy,
+                        570,
+                        "VIEW PROBLEM LIST");
         }
 
         SDL_RenderPresent(renderer);
