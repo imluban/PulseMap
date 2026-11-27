@@ -540,13 +540,13 @@ int main(int argc, char *argv[])
             if (screen == SCREEN_DASHBOARD) {
 
                 if (tx >= 20 && tx <= 400 &&
-                    ty >= 470 && ty <= 545) {
+                    ty >= 545 && ty <= 620) {
 
                     screen = SCREEN_REPORT;
                     error_message[0] = '\0';
                 }
                 else if (tx >= 20 && tx <= 400 &&
-                         ty >= 570 && ty <= 645) {
+                         ty >= 645 && ty <= 711) {
                     screen = SCREEN_INCIDENTS;
                 }
             }
@@ -659,6 +659,9 @@ int main(int argc, char *argv[])
             else if (screen == SCREEN_INCIDENTS) {
                 if (ty >= 35 && ty <= 115 && tx >= 15 && tx <= 180) {
                     screen = SCREEN_DASHBOARD;
+                } else if (report_count == 0 && ty >= 470 && ty <= 545) {
+                    screen = SCREEN_REPORT;
+                    error_message[0] = '\0';
                 }
             }
 
@@ -698,67 +701,60 @@ int main(int argc, char *argv[])
            --------------------------------------------- */
 
         if (screen == SCREEN_DASHBOARD) {
-
-            draw_rect(renderer,
-                      0, 0,
-                      output_w,
-                      220 * sy,
+            /* Brand header */
+            draw_rect(renderer, 0, 0, output_w, 225 * sy,
                       RED_R, RED_G, RED_B);
+            draw_text(renderer, 24 * sx, 42 * sy,
+                      "PULSEMAP", 255, 255, 255);
+            draw_text(renderer, 24 * sx, 75 * sy,
+                      "EAST DELTA UNIVERSITY", 245, 220, 228);
+            draw_text(renderer, 24 * sx, 132 * sy,
+                      "Your campus. Your voice.", 255, 255, 255);
+            draw_text(renderer, 24 * sx, 165 * sy,
+                      "Spot it. Report it. Improve it.", 245, 220, 228);
 
-            draw_text(renderer,
-                      25 * sx,
-                      55 * sy,
-                      "PULSEMAP",
-                      255, 255, 255);
-
-            draw_text(renderer,
-                      25 * sx,
-                      85 * sy,
-                      "EAST DELTA UNIVERSITY",
-                      255, 255, 255);
-
-            draw_text(renderer,
-                      25 * sx,
-                      135 * sy,
-                      "Your campus. Your voice.",
-                      255, 255, 255);
-
-            draw_rect(renderer,
-                      20 * sx,
-                      250 * sy,
-                      380 * sx,
-                      180 * sy,
+            /* Overview panel */
+            draw_rect(renderer, 16 * sx, 245 * sy, 388 * sx, 118 * sy,
                       248, 243, 245);
-
-            draw_text(renderer,
-                      40 * sx,
-                      280 * sy,
-                      "CAMPUS PROBLEM RADAR",
-                      RED_R, RED_G, RED_B);
-
-            draw_text(renderer,
-                      40 * sx,
-                      320 * sy,
-                      "Campus issues will appear here.",
-                      65, 65, 65);
-
-            draw_button(renderer,
-                        sx, sy,
-                        470,
-                        "REPORT A PROBLEM");
-
-            draw_button(renderer,
-                        sx, sy,
-                        570,
-                        "VIEW PROBLEM LIST");
-
+            draw_text(renderer, 32 * sx, 270 * sy,
+                      "YOUR CAMPUS AT A GLANCE", RED_R, RED_G, RED_B);
             {
-                char count_text[64];
-                snprintf(count_text, sizeof(count_text),
-                         "Saved reports: %u", (unsigned)report_count);
-                draw_text(renderer, 25 * sx, 680 * sy,
-                          count_text, 90, 90, 90);
+                char count_text[48];
+                snprintf(count_text, sizeof(count_text), "%u", (unsigned)report_count);
+                draw_text(renderer, 34 * sx, 315 * sy,
+                          count_text, 45, 35, 40);
+                draw_text(renderer, 76 * sx, 315 * sy,
+                          "LOCAL REPORTS", 90, 75, 80);
+                draw_text(renderer, 250 * sx, 315 * sy,
+                          "ON THIS DEVICE", 90, 75, 80);
             }
+
+            /* Problem radar */
+            draw_rect(renderer, 16 * sx, 385 * sy, 388 * sx, 125 * sy,
+                      255, 255, 255);
+            draw_rect(renderer, 16 * sx, 385 * sy, 5 * sx, 125 * sy,
+                      RED_R, RED_G, RED_B);
+            draw_text(renderer, 32 * sx, 410 * sy,
+                      "CAMPUS PROBLEM RADAR", RED_R, RED_G, RED_B);
+            draw_text(renderer, 32 * sx, 447 * sy,
+                      "Emerging campus issues", 45, 45, 45);
+            draw_text(renderer, 32 * sx, 475 * sy,
+                      report_count ? "Your submitted reports are being tracked." :
+                                     "No reports yet. Be the first to speak up.",
+                      105, 95, 100);
+
+            /* Primary actions */
+            draw_button(renderer, sx, sy, 545, "REPORT A PROBLEM");
+            draw_rect(renderer, 20 * sx, 645 * sy, 380 * sx, 66 * sy,
+                      248, 243, 245);
+            draw_text(renderer, 112 * sx, 674 * sy,
+                      "VIEW PROBLEM LIST", RED_R, RED_G, RED_B);
+
+            draw_text(renderer, 24 * sx, 765 * sy,
+                      "FEEL THE CAMPUS. DRIVE THE CHANGE.",
+                      115, 95, 102);
+            draw_text(renderer, 24 * sx, 815 * sy,
+                      "PULSEMAP  /  EAST DELTA", 145, 125, 132);
         }
 
         /* ---------------------------------------------
@@ -905,53 +901,56 @@ int main(int argc, char *argv[])
            --------------------------------------------- */
 
         else if (screen == SCREEN_INCIDENTS) {
-            draw_rect(renderer, 0, 0, output_w, 150 * sy,
+            draw_rect(renderer, 0, 0, output_w, 165 * sy,
                       RED_R, RED_G, RED_B);
-            draw_text(renderer, 25 * sx, 55 * sy,
+            draw_text(renderer, 24 * sx, 48 * sy,
                       "< BACK", 255, 255, 255);
-            draw_text(renderer, 25 * sx, 105 * sy,
+            draw_text(renderer, 24 * sx, 100 * sy,
                       "PROBLEM LIST", 255, 255, 255);
+            draw_text(renderer, 24 * sx, 133 * sy,
+                      "Campus reports saved on this device", 245, 220, 228);
 
             if (report_count == 0) {
-                draw_text(renderer, 25 * sx, 220 * sy,
-                          "No reports submitted yet.", 75, 75, 75);
-                draw_text(renderer, 25 * sx, 265 * sy,
-                          "Your submitted reports will appear here.",
-                          110, 110, 110);
+                draw_rect(renderer, 18 * sx, 220 * sy, 384 * sx, 190 * sy,
+                          248, 243, 245);
+                draw_text(renderer, 38 * sx, 265 * sy,
+                          "ALL QUIET FOR NOW", RED_R, RED_G, RED_B);
+                draw_text(renderer, 38 * sx, 310 * sy,
+                          "No reports have been submitted yet.", 75, 75, 75);
+                draw_text(renderer, 38 * sx, 350 * sy,
+                          "Help improve campus by reporting an issue.",
+                          105, 95, 100);
+                draw_button(renderer, sx, sy, 470, "REPORT A PROBLEM");
             } else {
                 char summary[96];
-                unsigned shown = (report_count < 5)
-                                     ? (unsigned)report_count : 5U;
+                unsigned shown = (report_count < 5) ? (unsigned)report_count : 5U;
                 snprintf(summary, sizeof(summary),
-                         "Showing newest %u of %u reports",
-                         shown, (unsigned)report_count);
-                draw_text(renderer, 25 * sx, 175 * sy,
-                          summary, 90, 90, 90);
+                         "%u RECENT REPORT(S)", (unsigned)report_count);
+                draw_text(renderer, 22 * sx, 195 * sy,
+                          summary, RED_R, RED_G, RED_B);
 
                 for (unsigned i = 0; i < shown; ++i) {
                     size_t index = report_count - 1U - i;
-                    float y = 205.0f + (float)i * 130.0f;
+                    float y = 225.0f + (float)i * 125.0f;
                     char meta[128];
-                    char detail[96];
-
-                    draw_rect(renderer, 20 * sx, y * sy,
-                              380 * sx, 112 * sy,
+                    char detail[80];
+                    draw_rect(renderer, 18 * sx, y * sy, 384 * sx, 108 * sy,
                               248, 243, 245);
-                    draw_text(renderer, 32 * sx, (y + 14) * sy,
-                              reports[index].title,
+                    draw_rect(renderer, 18 * sx, y * sy, 4 * sx, 108 * sy,
                               RED_R, RED_G, RED_B);
-                    snprintf(meta, sizeof(meta), "%s | %s | %s",
+                    draw_text(renderer, 32 * sx, (y + 17) * sy,
+                              reports[index].title, 65, 30, 42);
+                    snprintf(meta, sizeof(meta), "%s  /  %s",
                              (reports[index].category >= 0 && reports[index].category < 5)
                                  ? categories[reports[index].category] : "Other",
                              (reports[index].severity >= 0 && reports[index].severity < 4)
-                                 ? severities[reports[index].severity] : "Medium",
-                             reports[index].location);
-                    draw_text(renderer, 32 * sx, (y + 43) * sy,
-                              meta, 65, 65, 65);
-                    snprintf(detail, sizeof(detail), "%.68s",
-                             reports[index].description);
-                    draw_text(renderer, 32 * sx, (y + 72) * sy,
-                              detail, 105, 105, 105);
+                                 ? severities[reports[index].severity] : "Medium");
+                    draw_text(renderer, 32 * sx, (y + 47) * sy,
+                              meta, RED_R, RED_G, RED_B);
+                    snprintf(detail, sizeof(detail), "%.25s  -  %.35s",
+                             reports[index].location, reports[index].description);
+                    draw_text(renderer, 32 * sx, (y + 78) * sy,
+                              detail, 100, 90, 95);
                 }
             }
         }
@@ -961,46 +960,20 @@ int main(int argc, char *argv[])
            --------------------------------------------- */
 
         else if (screen == SCREEN_CONFIRMATION) {
-
-            draw_rect(renderer,
-                      0, 0,
-                      output_w,
-                      220 * sy,
+            draw_rect(renderer, 0, 0, output_w, 225 * sy,
                       RED_R, RED_G, RED_B);
-
-            draw_text(renderer,
-                      25 * sx,
-                      65 * sy,
-                      "PULSEMAP",
-                      255, 255, 255);
-
-            draw_text(renderer,
-                      25 * sx,
-                      110 * sy,
-                      "REPORT SAVED",
-                      255, 255, 255);
-
-            draw_text(renderer,
-                      25 * sx,
-                      300 * sy,
-                      "Your report is saved on this device.",
-                      65, 65, 65);
-
-            draw_text(renderer,
-                      25 * sx,
-                      345 * sy,
-                      "It is now available in the Problem List.",
-                      65, 65, 65);
-
-            draw_button(renderer,
-                        sx, sy,
-                        470,
-                        "RETURN TO DASHBOARD");
-
-            draw_button(renderer,
-                        sx, sy,
-                        570,
-                        "VIEW PROBLEM LIST");
+            draw_text(renderer, 24 * sx, 55 * sy,
+                      "PULSEMAP", 255, 255, 255);
+            draw_text(renderer, 24 * sx, 112 * sy,
+                      "REPORT RECEIVED", 255, 255, 255);
+            draw_rect(renderer, 20 * sx, 275 * sy, 380 * sx, 150 * sy,
+                      248, 243, 245);
+            draw_text(renderer, 40 * sx, 315 * sy,
+                      "THANK YOU FOR SPEAKING UP", RED_R, RED_G, RED_B);
+            draw_text(renderer, 40 * sx, 360 * sy,
+                      "Your report is saved on this device.", 65, 65, 65);
+            draw_button(renderer, sx, sy, 470, "RETURN TO DASHBOARD");
+            draw_button(renderer, sx, sy, 570, "VIEW PROBLEM LIST");
         }
 
         SDL_RenderPresent(renderer);
